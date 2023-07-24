@@ -1,0 +1,122 @@
+
+<div class="px-4 py-5 my-5 text-center">
+    <h1 class="display-5 fw-bold">Submit Your Experience</h1>
+    <div class="col-lg-6 mx-auto" >
+          <p class="lead" >Share your amazing experience with thousands of people accross the world.</p>
+    </div>
+
+</div>
+
+<%if(locals.user){%>
+
+  <div class="row justify-content-center">
+       
+    <div class="col-8">
+         <form action="/submit-place" enctype="multipart/form-data" method="post">
+                    <div class="row g-3">
+                        <div class="col-12" >
+                          <label for="email" class="form-label">Email</label>
+                          <input type="email" name="email" id="email" class="form-control">
+                        </div>
+ 
+                        <div class="col-12" >
+                         <label for="name" class="form-label">Place Name</label>
+                         <input type="text" name="name" id="name" class="form-control">
+                       </div>
+ 
+                       <div class="col-12" >
+                         <label for="description" class="form-label">Description</label>
+                         <textarea name="description" id="description" cols="30" rows="4" class="form-control"></textarea>
+                       </div>
+ 
+ 
+                       <!-- Select States -->
+                       <div class="col-12" >
+                         <label for="category">Select State</label>
+                         <select class="form-select form-control" name="state" aria-label="Category">
+                             <option selected>Select State</option>
+                             <option  value="Andhra Pradesh">Andhra Pradesh</option>
+                             <option value="Arunachal Pradesh">Arunachal Pradesh</option>
+                             <option value="Assam">Assam</option>
+                             <option value="Bihar">Bihar</option>
+                             <option value="Chhattisgarh">Chhattisgarh</option>
+                             <option value="Goa">Goa</option>
+                             <option value="Gujarat">Gujarat</option>
+                             <option value="Haryana">Haryana</option>
+                             <option value="Himachal Pradesh">Himachal Pradesh</option>
+                             <option value="Jharkhand">Jharkhand</option>
+                             <option value="Karnataka">Karnataka</option>
+                             <option value="Kerala">Kerala</option>
+                             <option value="Madhya Pradesh">Madhya Pradesh</option>
+                             <option value="Maharashtra">Maharashtra</option>
+                             <option value="Manipur">Manipur</option>
+                             <option value="Meghalaya">Meghalaya</option>
+                             <option value="Manipur">Manipur</option>
+                             <option value="Mizoram">Mizoram</option>
+                             <option value="Nagaland">Nagaland</option>
+                             <option value="Manipur">Manipur</option>
+                             <option value="Odisha">Odisha</option>
+                             <option value="Punjab">Punjab</option>
+                             <option value="Rajasthan">Rajasthan</option>
+                             <option value="Sikkim">Sikkim	</option>
+                             <option value="Tamil Nadu">Tamil Nadu</option>
+                             <option value="Telangana">Telangana</option>
+                             <option value="Tripura">Tripura</option>
+                             <option value="Uttar Pradesh">Uttar Pradesh</option>
+                             <option value="Uttarakhand">Uttarakhand</option>
+                             <option value="West Bengal">West Bengal</option>
+ 
+                             
+                         </select>
+                       </div>
+                               
+                       <div class="col-12" >
+                         <label for="image"> Image</label>
+                         <input type="file" class="form-control" name="image" accept="image/*">
+                       </div>
+ 
+                       <div class="col-12">
+                         <button type="submit" class="btn btn-primary" >Submit</button>
+                       </div>
+                    </div>
+         </form>
+    </div>
+ </div>
+  <%}else{%>
+      
+    
+<body id="user">
+  <link rel="stylesheet" href="/css/user.css">
+  <div class="wrapper">
+      <h2>Sign In</h2>
+      <form action="/users/sign-in" method="post">
+       
+        <div class="input-box">
+          <input type="text" placeholder="Enter your email"   name="email" required>
+        </div>
+
+        <div class="input-box">
+          <input type="password" placeholder="Enter your password"  name="password" required>
+        </div>
+      
+       
+        <div class="input-box button">
+          <input type="Submit" value="Sign In">
+        </div>
+        <div class="text">
+          <h3>Already have an account? <a href="/users/sign-up">Registration</a></h3>
+          
+        </div>
+      </form>
+     
+        <div class="media-options">
+          <a href="/users/auth/google"style=" text-decoration: none;" class="field google">
+              <img src="/images/google.png" alt="" class="google-img">
+              <span>Login with Google</span>
+          </a>
+      </div>
+      
+</body>
+
+    <%}%>
+

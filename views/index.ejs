@@ -1,0 +1,197 @@
+<div class="row flex-lg-row-reverse align-items-center g-5 py-4 mb-4">
+
+    <div class="col-12 col-lg-6">
+        <img src="/images/tajMahal.jpg" width="607" height="510" class="d-block mx-lg-auto img-fluid"   alt="">
+
+    </div>
+
+    <div class="col-12 col-lg-6">
+
+        <h1 class="display-5 fw-bold mb-3" > Top  Tourist Places in India that are Totally Worth Visiting</h1>
+         <p>India is a truly diverse country, be it culturally or geographically. No two cities or states are the same! And that means, there are plenty of amazing holiday destinations for different types of travellers, across the country. However, there are certain places that are heavily frequented by tourists and some people even end up visiting the same destination several times. Such cliched destinations have a charm of their own though and usually promise a timeless experience every time. So, in this blog, we will talk about the top 15 places to visit in India that are totally worth the hype.</p>  
+                  
+        <div class="d-grid gap-2 d-md-flex justify-content-md-start" >
+            <a href="/explore-latest" class="btn btn-primary btn-dark btn-lg px-4 me-md-2">Explore Latest</a>
+            <a href="/explore-random" class="btn btn-outline-secondary  btn-lg px-4 me-md-2">Show random</a>
+        </div>
+
+    </div>
+</div>
+</div>
+
+<!-- state start -->
+<div class="row row-cols-2 row-cols-lg-6 g-2 g-lg-3 py-4" >
+    <% if(states !='') {%>
+            <% for(let state of states) {%>
+        
+            <a href="/states/<%=state.name%>" class="col text-center category__link  ">
+                <div class="category__img shadow">
+                    <img src="/images/<%= state.image%>"    alt="<%= state.name%>">
+                </div>
+                <div class="pt-1"> <%= state.name%></div>
+            </a>
+            <% } %>
+    <%}%>
+
+ 
+    <a href="/states" class="col text-center category__link  ">
+        <div class="category__img shadow">
+             <img src="/images/viewall.png"   alt="view all states" >
+        </div>
+        <div class="pt-1"> View All</div>
+    </a>   
+</div>
+<!-- states end -->
+
+
+<!-- Most Visited Places start -->
+    
+<section class="pb-4 pt-4">
+    <div class="d-flex mb-2 align-items-center">
+     <h2>Explore Lates</h2>
+    
+     <a href="/explore-latest" class="ms-auto">View More</a>
+    </div>
+    <div class="row row-cols-2 row-cols-lg-5 g-2 g-lg-3">
+        <% if(place!=''){%>
+            <% place.exploreLates.forEach(function(place,index){%>
+             <a href="/places/<%=place._id%>"" class="col text-center category__link">
+                 <div class="category__img category__img__large  shadow" >
+                     <img src="/uploads/<%=place.image%>"   alt="<%=place.name%>" >
+                </div>
+                <div class="pt-1"><%=place.name%></div>
+             </a>
+             <%}) %>
+        
+        <%} %>
+    </div>
+  </section>
+ 
+ <!-- Most Visited Places end -->
+
+
+
+
+ <!-- West Bengal start -->
+    
+ <section class="pb-4 pt-4">
+    <div class="d-flex mb-2 align-items-center">
+     <h2> West Bengal</h2>
+        <a href="/states/west-bengal" class="ms-auto">View More</a>
+    </div>
+ 
+    <div class="row row-cols-2 row-cols-lg-5 g-2 g-lg-3">
+        <% if(typeof place.westBengal !=='undefined' && place.westBengal.length>0){%>
+            <% place.westBengal.forEach(function(place,index){%>
+              
+             <a href="/places/<%=place._id%>" class="col text-center category__link">
+                 <div class="category__img category__img__large  shadow" >
+                     <img src="/uploads/<%=place.image%>"   alt="<%= place.name%>" >
+                </div>
+                <div class="pt-1"> <%= place.name%></div>
+             </a>
+             <%}) %>
+             <%} else{%>
+             
+                <p>No items Found</p>
+            <% } %>
+    </div>
+  </section>
+ 
+ <!-- West Bengal end -->
+
+
+<!-- Sikkim start -->
+    
+<section class="pb-4 pt-4">
+    <div class="d-flex mb-2 align-items-center">
+     <h2> Sikkim</h2>
+   
+     <a href="/states/sikkim" class="ms-auto">View More</a>
+    </div>
+ 
+    <div class="row row-cols-2 row-cols-lg-5 g-2 g-lg-3">
+   
+         <% if (typeof place.sikkim !=='undefined' && place.sikkim.length>0) { %>
+            <% place.sikkim.forEach(function(place,index){%>
+              
+             <a href="/places/<%= place._id%>" class="col text-center category__link">
+                 <div class="category__img category__img__large  shadow" >
+                     <img src="/uploads/<%=place.image%>"   alt="<%= place.name%>" >
+                </div>
+                <div class="pt-1"> <%= place.name%></div>
+             </a>
+             <%}) %>
+             <%} else{%>
+             
+                <p>No items Found</p>
+            <% } %>
+           
+    </div>
+  </section>
+ 
+ <!-- Sikkim end -->
+
+   <!-- Rajasthan start -->
+    
+<section class="pb-4 pt-4">
+    <div class="d-flex mb-2 align-items-center">
+     <h2> Rajasthan</h2>
+    
+     <a href="/states/rajasthan" class="ms-auto">View More</a>
+    </div>
+    <div class="row row-cols-2 row-cols-lg-5 g-2 g-lg-3">
+        <% if (typeof place.rajasthan !=='undefined' && place.rajasthan.length>0) { %>
+            <% place.rajasthan.forEach(function(place, index) { %>
+                <a href="/places/<%= place._id %>" class="col text-center category__link">
+                    <div class="category__img category__img__large shadow">
+                        <img src="/uploads/<%= place.image %>" alt="<%= place.name %>">
+                    </div>
+                    <div class="pt-1"><%= place.name %></div>
+                </a>
+            <% }) %>
+        <% } else { %>
+            <p>No items Found</p>
+        <% } %>
+    </div>
+ 
+   
+  </section>
+ 
+ <!-- Rajasthan end -->
+
+
+
+
+ <!-- Kerala start -->
+  <!-- Kerala end -->
+ 
+ <!-- Goa start -->
+  <!-- Goa end -->
+
+
+
+
+
+
+
+
+
+  <!-- Submit start -->
+<section class="px-4 py-5 my-5 text-center">
+
+    <img src="/images/submit.jpg" alt="" class="d-block mx-auto mb-4 img-fluid" width="566" height="208"  loading="lazy"  >
+    <h1 class="display-5 fw-bold" >Publish your experience for FREE today</h1>
+
+    <div class="col-lg-6 mx-auto">
+
+        <p class="lead mb-4">
+            Lorem ipsum dolor sit amet consectetur, adipisicing elit. Fugiat dolor incidunt corporis consectetur culpa, provident odio maxime nobis nemo praesentium cumque nesciunt libero veniam neque molestias tenetur natus recusandae vitae?
+        </p>
+        <div class="d-grid gap-2 d-sm-flex justify-content-center">
+             <a href="/submit-place" class="btn btn-primary btn-dark btn-lg ">Submit</a>
+        </div>
+    </div>
+
+</section>
+<!-- Submit end -->
